@@ -3,7 +3,6 @@ const User = require("../models/user");
 const mongoose = require("mongoose");
 
 class UserController {
-
   async getAll(req, res) {
     try {
       // Retrieve all users
@@ -23,14 +22,12 @@ class UserController {
       });
     }
   }
-
   async create(req, res) {
     const newUser = new User({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
     });
-
     newUser
       .save()
       .then(() => {
@@ -42,7 +39,6 @@ class UserController {
         res.status(500).json({ status: false, message: "Error creating user" });
       });
   }
-
   async detail(req, res) {
     const userId = req.params.userId;
     User.findById(userId)
@@ -60,7 +56,6 @@ class UserController {
           .json({ status: false, message: "Error retrieving user" });
       });
   }
-
   async update(req, res) {
     const userId = req.params.userId;
     const updatedUser = req.body;
@@ -71,7 +66,6 @@ class UserController {
             .status(404)
             .json({ status: false, message: "User not found" });
         }
-
         res.json({
           status: true,
           data: user,
@@ -82,7 +76,6 @@ class UserController {
         res.status(500).json({ status: false, message: "Error updating user" });
       });
   }
-
   async delete(req, res) {
     const userId = req.params.userId;
     User.findByIdAndDelete(userId)
@@ -98,10 +91,8 @@ class UserController {
         res.status(500).json({ status: false, message: "Error deleting user" });
       });
   }
-
   async signin(req, res) {
     const { email, password } = req.body;
-
     // Check user in database
     User.findOne({ email })
       .then((user) => {
@@ -119,7 +110,6 @@ class UserController {
         res.status(500).json({ status: false, message: "Error logging in" });
       });
   }
-
   async signout() {
     res.json({status: true, message: "Sign out successfully"})
   }
