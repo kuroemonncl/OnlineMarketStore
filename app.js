@@ -6,7 +6,7 @@ const route = require('./routes/index');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Connect to MongoDB
 connectDB.connect();
@@ -24,7 +24,7 @@ route(app);
 // Specific route for the landing page
 app.get('/', (req, res) => {
     console.log('Serving landing page');
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    // res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Start the server

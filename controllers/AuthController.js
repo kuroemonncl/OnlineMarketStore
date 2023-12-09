@@ -30,9 +30,9 @@ class AuthController {
             // Generate and set JWT token as a cookie
             const token = jwt.sign({ _id: user._id }, config.jwtSecret);
             res.cookie('t', token, { expire: new Date() + 9999 });
-
+            res.json({token: token});
             // Redirect to the landing page after successful sign-in
-            res.redirect('/landingPage');
+            // res.redirect('/landingPage');
         } catch (error) {
             console.error(error);
             res.status(500).json({ status: false, message: "Error logging in" });
