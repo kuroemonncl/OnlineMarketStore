@@ -27,7 +27,7 @@ const DeleteObject = ({ match, history }) => {
 
     const handleDelete = async () => {
     try {
-        const response = await fetch(`http://localhost:3000/api/users/${userId}`, {
+        const response = await fetch(`https://linhs-online-market-store.onrender.com/api/users/${userId}`, {
         method: 'DELETE',
         });
 

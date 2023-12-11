@@ -64,7 +64,7 @@ const MyProfile = ({ handleDelete }) => {
             Object.entries(newUserData).filter(([key, value]) => value.trim() !== "")
           );
   
-          const response = await fetch(`http://localhost:8080/api/users/${userId}`, {
+          const response = await fetch(`https://linhs-online-market-store.onrender.com/api/users/${userId}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",
@@ -108,7 +108,7 @@ const MyProfile = ({ handleDelete }) => {
 
         if (userId) {
           try {
-            const response = await fetch(`http://localhost:8080/api/users/${userId}`, {
+            const response = await fetch(`https://linhs-online-market-store.onrender.com/api/users/${userId}`, {
               method: "DELETE",
             });
 

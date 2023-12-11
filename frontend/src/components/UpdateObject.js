@@ -48,7 +48,7 @@ const UpdateObject = ({ match }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/users/${userId}`,
+        `https://linhs-online-market-store.onrender.com/api/users/${userId}`,
         {
           method: "PUT",
           headers: {
